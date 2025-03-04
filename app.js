@@ -3,6 +3,7 @@ const logger = require('morgan')
 const mongoClient = require('mongoose')
 
 const userRoute = require('./routes/user')
+const bodyParser = require('body-parser')
 
 // Setup connect mongodb by mongoose
 mongoClient.connect('mongodb://localhost:27017/nodejs')
@@ -13,6 +14,7 @@ const app = express()
 
 // Middlewares
 app.use(logger('dev'))
+app.use(bodyParser.json())
 
 // Routes
 app.use('/users', userRoute)
