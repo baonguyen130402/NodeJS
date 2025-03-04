@@ -1,7 +1,13 @@
 const express = require('express')
 const logger = require('morgan')
+const mongoClient = require('mongoose')
 
 const userRoute = require('./routes/user')
+
+// Setup connect mongodb by mongoose
+mongoClient.connect('mongodb://localhost:27017/nodejs')
+  .then(() => console.log('Connect to Database successfully'))
+  .catch((error) => console.err(`Cannot connect to Database, error is ${error}`))
 
 const app = express()
 
