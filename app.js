@@ -1,10 +1,15 @@
 const express = require('express')
 const logger = require('morgan')
 
+const userRoute = require('./routes/user')
+
 const app = express()
 
 // Middlewares
 app.use(logger('dev'))
+
+// Routes
+app.use('/users', userRoute)
 
 // Routes
 app.get('/', (req, res, next) => {
