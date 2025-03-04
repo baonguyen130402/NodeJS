@@ -1,12 +1,10 @@
 const express = require('express')
 const router  = express.Router()
 
+const UserController = require('../controllers/user')
+
 router.route('/')
-  .get((_, res) => {
-    return res.status(200).json({
-      message: 'You request to user handle'
-    })
-  })
+  .get(UserController.getAllUsers)
   .post()
   .patch()
   .put()
