@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 // Error handler function
 app.use((err, req, res, next) => {
   const error = app.get('env') === 'development' ? err : {}
-  const status = err.status || 500
+  const status = err.isJoi ? 422 : err.status || 500
 
   return res.status(status).json({
     error: {
