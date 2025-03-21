@@ -1,9 +1,11 @@
 const express = require('express')
+
 const logger = require('morgan')
 const mongoClient = require('mongoose')
+const bodyParser = require('body-parser')
 
 const userRoute = require('./routes/user')
-const bodyParser = require('body-parser')
+const deckRoute = require('./routes/deck')
 
 // Setup connect mongodb by mongoose
 mongoClient.connect('mongodb://localhost:27017/nodejs')
@@ -18,6 +20,7 @@ app.use(bodyParser.json())
 
 // Routes
 app.use('/users', userRoute)
+app.use('/decks', deckRoute)
 
 // Routes
 app.get('/', (req, res, next) => {
