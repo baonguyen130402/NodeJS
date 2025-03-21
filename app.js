@@ -10,7 +10,7 @@ const deckRoute = require('./routes/deck')
 // Setup connect mongodb by mongoose
 mongoClient.connect('mongodb://localhost:27017/nodejs')
   .then(() => console.log('Connect to Database successfully'))
-  .catch((error) => console.err(`Cannot connect to Database, error is ${error}`))
+  .catch((error) => console.error(`Cannot connect to Database, error is ${error}`))
 
 const app = express()
 
